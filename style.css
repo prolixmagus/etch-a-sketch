@@ -1,0 +1,16 @@
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+div {
+    border: solid black 1px;
+}
+
+#cell {
+min-width: 1em;
+min-height: 1em;
+width: 25%
+}
