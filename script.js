@@ -2,10 +2,10 @@
 
 //creating the Grid
 
-function createRow() {
-    let row = document.createElement('div');
-    row.setAttribute('id', 'row');
-    return row;
+function createColumn() {
+    let col = document.createElement('div');
+    col.setAttribute('id', 'col');
+    return col;
 }
 
 function createCell() {
@@ -14,16 +14,16 @@ function createCell() {
     return cell;
 }
 
-function createGrid(rows, cells) {
+function createGrid(cols, cells) {
     let container = document.querySelector('#container');
 
-    for (i = rows; i > 0; i--) {
-        let row = createRow()
-        container.appendChild(row)
+    for (i = cols; i > 0; i--) {
+        let col = createColumn()
+        container.appendChild(col)
 
         for (j = cells; j > 0; j--) {
                 let cell = createCell()
-                row.appendChild(cell)
+                col.appendChild(cell)
         }
     }
 }
@@ -34,7 +34,6 @@ function changeAllCellColor() {
     let allCells = document.querySelectorAll('#cell')
     allCells.forEach((item) => {
         item.addEventListener('mouseover', changeColor)
-        console.log(item)
     })
 }
 
@@ -67,17 +66,14 @@ function removeClass(e) {
 }
 
 function reset() {
-    let button = document.querySelector('.reset')
-    button.addEventListener('click', () => { 
         window.location.reload()
-    })
 }
 
+
 //running the program
-createGrid(16, 16);
+createGrid(10, 4);
 changeAllCellColor()
 buttonChange();
 removeButtonChange();
-reset()
 
 
