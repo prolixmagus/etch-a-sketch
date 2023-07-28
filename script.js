@@ -15,13 +15,23 @@ function createCell() {
 
 function drawGrid(input) {
     let container = document.querySelector('#container');
-        for (i = input * input; i > 0; i--) {
+        for (h = 0; h < input; h++) {
                 let cell = createCell()
                 container.appendChild(cell)
         }
+
+        const rows = document.querySelectorAll('#cell');
+        rows.forEach((item) => {
+            for (w = 0; w < input; w++) {
+                let square = document.createElement('div')
+                square.setAttribute('id', 'square')
+                item.appendChild(square)
+        }
+    })
         removeEvent();
-    }
+}
     
+
 function removeEvent() {
     let gridSizeButton = document.querySelector('#grid-size')
     gridSizeButton.removeEventListener('click', createGrid)
@@ -29,14 +39,14 @@ function removeEvent() {
 //adding events to grid cells
 
 function changeAllCellColor() {
-    let allCells = document.querySelectorAll('#cell')
-    allCells.forEach((item) => {
-        item.addEventListener('mouseenter', changeColor)
+    let allSquares = document.querySelectorAll('#square')
+    allSquares.forEach((square) => {
+        square.addEventListener('mouseenter', changeColor)
     })
 }
 
 function changeColor (e) {
-    e.target.style.background = "yellow"
+    e.target.style.background = "cyan"
 }
 
 //button event
@@ -92,6 +102,3 @@ function createGrid(){
 askUserForGrid();
 buttonChange();
 removeButtonChange();
-
-
-
