@@ -16,6 +16,7 @@ function createCell() {
 function drawGrid(input) {
     let container = document.querySelector('#container');
         for (h = 0; h < input; h++) {
+                let square = document.createElement('div')
                 let cell = createCell()
                 container.appendChild(cell)
         }
