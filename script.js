@@ -34,13 +34,50 @@ function changeAllCellColor() {
     let allCells = document.querySelectorAll('#cell')
     allCells.forEach((item) => {
         item.addEventListener('mouseover', changeColor)
+        console.log(item)
     })
 }
 
 function changeColor (e) {
-    e.target.style.background="yellow"
+    e.target.style.background = "yellow"
+}
+
+//button event
+
+function buttonChange() {
+    let buttons = document.querySelectorAll('#btn')
+    buttons.forEach((item) => {
+        item.addEventListener('click', addClass)
+    })
+}
+
+function addClass(e) {
+    e.target.classList.add('btn-change')
+}
+
+function removeButtonChange() {
+    let buttons = document.querySelectorAll('#btn')
+    buttons.forEach((item) => {
+        item.addEventListener('transitionend', removeClass)
+    })
+}
+
+function removeClass(e) {
+    e.target.classList.remove('btn-change')
+}
+
+function reset() {
+    let button = document.querySelector('.reset')
+    button.addEventListener('click', () => { 
+        window.location.reload()
+    })
 }
 
 //running the program
 createGrid(16, 16);
 changeAllCellColor()
+buttonChange();
+removeButtonChange();
+reset()
+
+

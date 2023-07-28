@@ -5,10 +5,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 18%;
-    margin-top: 15%;
-    height: 100%;
-    width: 65%;
+    margin: 10px 20px;
 }
 
 #cell {
@@ -25,5 +22,27 @@ border: solid black;
     min-height: 1em;
     height: 100%;
     width: 100%;
-    border-color: yellow;
+    border-color: forestgreen;
+}
+
+.wrapper {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+#btn {
+    padding: .25;
+    margin-bottom: 1em;
+    transition: all .05s;
+
+}
+
+.btn-change {
+    border: solid black 2px;
+}
+
+#btn:hover {
+    scale: 1.1;
 }
