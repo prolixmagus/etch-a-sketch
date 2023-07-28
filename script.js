@@ -2,11 +2,6 @@
 
 //creating the Grid
 
-function createColumn() {
-    let col = document.createElement('div');
-    col.setAttribute('id', 'col');
-    return col;
-}
 
 function createCell() {
     let cell = document.createElement('div');
@@ -14,19 +9,15 @@ function createCell() {
     return cell;
 }
 
-function createGrid(cols, cells) {
+function createGrid(input) {
+
     let container = document.querySelector('#container');
-
-    for (i = cols; i > 0; i--) {
-        let col = createColumn()
-        container.appendChild(col)
-
-        for (j = cells; j > 0; j--) {
+        for (j = input * input; j > 0; j--) {
                 let cell = createCell()
-                col.appendChild(cell)
+                container.appendChild(cell)
         }
     }
-}
+
 
 //adding events to grid cells
 
@@ -44,18 +35,18 @@ function changeColor (e) {
 //button event
 
 function buttonChange() {
-    let buttons = document.querySelectorAll('#btn')
+    let buttons= document.querySelectorAll('.button')
     buttons.forEach((item) => {
-        item.addEventListener('click', addClass)
-    })
-}
+       item.addEventListener('click', addClass)
+    }
+)}
 
 function addClass(e) {
     e.target.classList.add('btn-change')
 }
 
 function removeButtonChange() {
-    let buttons = document.querySelectorAll('#btn')
+    let buttons = document.querySelectorAll('.button')
     buttons.forEach((item) => {
         item.addEventListener('transitionend', removeClass)
     })
@@ -66,14 +57,32 @@ function removeClass(e) {
 }
 
 function reset() {
-        window.location.reload()
+    window.location.reload()
 }
 
+function userInput() {
+    let input = ""
+    do {
+        input = prompt('Enter a single digit less than 100 to create a L x W square .\n Hint: The smaller the number, the bigger the pixels')
+    }   while (isNaN(input) || input > 100 || input <= 0)
+
+    return input;
+}
+
+function askUser() {
+    let gridSizeButton = document.querySelector('#grid-size')
+    gridSizeButton.addEventListener('click', function () {
+        const input = userInput()
+        createGrid(input);
+        changeAllCellColor()
+
+    })
+}
 
 //running the program
-createGrid(10, 4);
-changeAllCellColor()
+askUser();
 buttonChange();
 removeButtonChange();
+
 
 

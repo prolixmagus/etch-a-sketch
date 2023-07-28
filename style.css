@@ -7,18 +7,14 @@ html {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    max-width: 960px;
     padding: 10px 0px;
+    width: 700px;
+
    
 }
 
-#col {
-    flex: 1 0 auto;
-}
-
 #cell {
-    flex: 1 0 auto;
-    padding: 15px;
+    padding: 60px;
     background-color: lightgreen;
     border: solid black;
 }
@@ -29,8 +25,7 @@ html {
     justify-content: center;
     gap: 100px;
 }
-
-#btn {
+button {
     padding: .25%;
     font-size: 2em;
     transition: all .06s;
@@ -40,7 +35,7 @@ html {
     border: solid black 2px;
 }
 
-#btn:hover {
+button:hover {
     scale: 1.1;
 }
 
