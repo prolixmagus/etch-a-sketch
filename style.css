@@ -12,5 +12,11 @@ div {
 #cell {
 min-width: 1em;
 min-height: 1em;
-width: 25%
+width: 100%
+}
+
+#row {
+    min-width: 1em;
+    min-height: 1em;
+    width: 100%
 }

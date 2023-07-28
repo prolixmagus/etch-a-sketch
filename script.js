@@ -1,17 +1,29 @@
 
-function attachCell() {
-    let container = document.querySelector('#container')
-    let cell = document.createElement('div')
+let selectedRow = document.querySelector('#row')
+let container = document.querySelector('#container')
 
-    cell.setAttribute('id', 'cell')
-    container.appendChild(cell)
-    
+function createRow() {
+    let row = document.createElement('div');
+    row.setAttribute('id', 'row');
+    return row;
 }
 
-function loopCells(cells) {
-    for (i = cells; i > 0; i--) {
-        attachCell()
+function createCell() {
+    let cell = document.createElement('div');
+    cell.setAttribute('id', 'cell')
+    return cell;
+}
+
+function CreateGrid(rows, cells) {
+    for (i = rows; i > 0; i--) {
+        let row = createRow()
+        container.appendChild(row)
+
+        for (j = cells; j > 0; j--) {
+                let cell = createCell()
+                row.appendChild(cell)
+        }
     }
 }
 
-loopCells(16)
+CreateGrid(16, 16);
