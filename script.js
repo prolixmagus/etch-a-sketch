@@ -1,6 +1,6 @@
 
-let selectedRow = document.querySelector('#row')
-let container = document.querySelector('#container')
+
+//creating the Grid
 
 function createRow() {
     let row = document.createElement('div');
@@ -14,7 +14,9 @@ function createCell() {
     return cell;
 }
 
-function CreateGrid(rows, cells) {
+function createGrid(rows, cells) {
+    let container = document.querySelector('#container');
+
     for (i = rows; i > 0; i--) {
         let row = createRow()
         container.appendChild(row)
@@ -26,4 +28,19 @@ function CreateGrid(rows, cells) {
     }
 }
 
-CreateGrid(16, 16);
+//adding events to grid cells
+
+function changeAllCellColor() {
+    let allCells = document.querySelectorAll('#cell')
+    allCells.forEach((item) => {
+        item.addEventListener('mouseover', changeColor)
+    })
+}
+
+function changeColor (e) {
+    e.target.style.background="yellow"
+}
+
+//running the program
+createGrid(16, 16);
+changeAllCellColor()
