@@ -1,23 +1,12 @@
 
 
 //creating the Grid
-function createColumn() {
-    let column = document.createElement('div');
-    column.setAttribute('id', 'column')
-    return column;
-}
-
-function createCell() {
-    let cell = document.createElement('div');
-    cell.setAttribute('id', 'cell')
-    return cell;
-}
 
 function drawGrid(input) {
     let container = document.querySelector('#container');
         for (h = 0; h < input; h++) {
-                let square = document.createElement('div')
-                let cell = createCell()
+                let cell = document.createElement('div');
+                cell.setAttribute('id', 'cell')
                 container.appendChild(cell)
         }
 
@@ -31,47 +20,11 @@ function drawGrid(input) {
     })
         removeEvent();
 }
-    
 
+//preventing adding more grids to existing grid
 function removeEvent() {
     let gridSizeButton = document.querySelector('#grid-size')
     gridSizeButton.removeEventListener('click', createGrid)
-}
-//adding events to grid cells
-
-function changeAllCellColor() {
-    let allSquares = document.querySelectorAll('#square')
-    allSquares.forEach((square) => {
-        square.addEventListener('mouseenter', changeColor)
-    })
-}
-
-function changeColor (e) {
-    e.target.style.background = "cyan"
-}
-
-//button event
-
-function buttonChange() {
-    let buttons= document.querySelectorAll('.button')
-    buttons.forEach((item) => {
-       item.addEventListener('click', addClass)
-    }
-)}
-
-function addClass(e) {
-    e.target.classList.add('btn-change')
-}
-
-function removeButtonChange() {
-    let buttons = document.querySelectorAll('.button')
-    buttons.forEach((item) => {
-        item.addEventListener('transitionend', removeClass)
-    })
-}
-
-function removeClass(e) {
-    e.target.classList.remove('btn-change')
 }
 
 function reset() {
@@ -92,14 +45,73 @@ function askUserForGrid() {
     gridSizeButton.addEventListener('click', createGrid)
 }
 
+
 function createGrid(){ 
     const input = userInput()
     drawGrid(input);
     changeAllCellColor()
+    psychadelicButtonClick()
+    BlackButtonClick()
+}
+
+//color options
+
+
+function changeAllCellColor() {
+    let allSquares = document.querySelectorAll('#square')
+    allSquares.forEach((square) => {
+        square.addEventListener('mouseenter', changeColor)
+    })
+}
+
+function changeColor (e) {
+    e.target.style.background = "cyan"
+}
+
+function BlackButtonClick() {
+    let blackButton = document.getElementById('black')
+    blackButton.addEventListener('click', selectAllGridsBlack)
+}
+
+function selectAllGridsBlack () {
+    let allSquares = document.querySelectorAll('#square')
+    allSquares.forEach((square) => {
+        square.addEventListener('mouseenter', blackColor)
+    })
+}
+
+function blackColor(e) {
+    e.target.style.background = "black"
+}
+
+function psychadelicButtonClick() {
+    let psychButton = document.getElementById('psycho')
+    psychButton.addEventListener('click', selectAllGridsPsychadelic)
+}
+
+function selectAllGridsPsychadelic () {
+    let allSquares = document.querySelectorAll('#square')
+    allSquares.forEach((square) => {
+        square.addEventListener('mouseenter', getRandomBackground)
+    })
+}
+
+function getRandomBackground(e) {
+    e.target.style.backgroundColor = colorRandomizer()
+}
+
+function colorRandomizer() {
+    let colorArray = []
+        for (let i = 0; i < 3; i++) {
+            colorArray.push(Math.floor(Math.random() * 256))
+        }
+    const r = colorArray[0]
+    const b = colorArray[1]
+    const g = colorArray[2]
+    
+    return "rgb(" + r + "," + g + "," + b + ")";
 }
 
 //running the program
-
 askUserForGrid();
-buttonChange();
-removeButtonChange();
+

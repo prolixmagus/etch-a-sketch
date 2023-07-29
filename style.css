@@ -28,7 +28,7 @@ html {
     display: flex;
     flex-direction: column;
     border: thin black 1px;
-    background-color: seagreen;
+    background-color: white;
 
 }
 
@@ -47,15 +47,32 @@ html {
 }
 button {
     padding: .25%;
-    font-size: 2em;
-    transition: all .06s;
+    font-size: 1.3em;
+    font-weight: bold;
+    font-variant: small-caps;
 }
 
-.btn-change {
-    border: solid black 2px;
+button#grid-size{
+    background-image: linear-gradient(to right, #eeaf61, #fb9062);
 }
 
+button#black{
+    background-image: linear-gradient(to right, #ee5d6c, #ce4993);
+}
+
+button#psycho{
+    background-image: linear-gradient(to right, 	#ce4993, #a9286f )
+}
+
+button#reset-btn {
+    background-color: #8a21a8;
+}
 button:hover {
+    color: yellow;
+    text-shadow: 2px 2px black;
+}
+
+button:active {
     scale: 1.1;
 }
 
