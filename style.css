@@ -28,7 +28,7 @@ html {
     display: flex;
     flex-direction: column;
     border: thin black 1px;
-    background-color: white;
+    opacity: 1
 
 }
 

@@ -10,6 +10,9 @@ Etch-a-Sketch DOM Manipulation project from [TheOdinProject](https://www.theodin
     <li>Learn new CSS attributes</li>
 </ul>
 
+## Live Link
+https://prolixmagus.github.io/etch-a-sketch/
+
 
 
 

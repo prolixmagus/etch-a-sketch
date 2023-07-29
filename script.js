@@ -1,7 +1,7 @@
 
 
 //creating the Grid
-
+let colorMode = "cyan"
 function drawGrid(input) {
     let container = document.querySelector('#container');
         for (h = 0; h < input; h++) {
