@@ -13,6 +13,14 @@ Etch-a-Sketch DOM Manipulation project from [TheOdinProject](https://www.theodin
 ## Live Link
 https://prolixmagus.github.io/etch-a-sketch/
 
+## Features
+
+Button to enable multicolor mode!
+Button to resize the grid to your liking.
+Button to reset grid.
+Palm trees.
+
+
 
 
 

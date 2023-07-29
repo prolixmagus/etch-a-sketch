@@ -1,7 +1,7 @@
 
 
 //creating the Grid
-let colorMode = "cyan"
+
 function drawGrid(input) {
     let container = document.querySelector('#container');
         for (h = 0; h < input; h++) {
@@ -33,11 +33,14 @@ function reset() {
 
 function userInput() {
     let input = ""
-    do {
-        input = prompt('Enter a single digit (max 100) to create a L x W square .\nHint: The smaller the number, the bigger the pixels')
-    }   while (isNaN(input) || input > 100 || input <= 0)
-
-    return input;
+    while(true) {
+        input = +prompt('Enter a single digit (max 100) to create a L x W square .\nHint: The smaller the number, the bigger the pixels')
+            if (input === isNaN(input) || input > 100 || input <=0 || input === null) {
+                alert('Please try again')
+            } else {
+                return input;
+            }
+    }
 }
 
 function askUserForGrid() {
@@ -71,11 +74,12 @@ function changeColor (e) {
 function BlackButtonClick() {
     let blackButton = document.getElementById('black')
     blackButton.addEventListener('click', selectAllGridsBlack)
-}
+    }
 
 function selectAllGridsBlack () {
     let allSquares = document.querySelectorAll('#square')
     allSquares.forEach((square) => {
+        square.removeEventListener('mouseenter', getRandomBackground)
         square.addEventListener('mouseenter', blackColor)
     })
 }
@@ -92,12 +96,28 @@ function psychadelicButtonClick() {
 function selectAllGridsPsychadelic () {
     let allSquares = document.querySelectorAll('#square')
     allSquares.forEach((square) => {
+        square.removeEventListener('mouseenter', blackColor)
         square.addEventListener('mouseenter', getRandomBackground)
     })
 }
 
 function getRandomBackground(e) {
     e.target.style.backgroundColor = colorRandomizer()
+}
+
+// enable toggling from Black to Psychadelic
+function removeBlackEventListener() {
+    let allSquares = document.querySelectorAll('#square')
+    allSquares.forEach((square) => {
+        square.removeEventListener('mouseenter', selectAllGridsBlack)
+    })
+}
+
+function removePsychadelicEventListener() {
+    let allSquares = document.querySelectorAll('#square')
+    allSquares.forEach((square) => {
+        square.removeEventListener('mouseenter', selectAllGridsPsychadelic )
+    })
 }
 
 function colorRandomizer() {
@@ -112,6 +132,13 @@ function colorRandomizer() {
     return "rgb(" + r + "," + g + "," + b + ")";
 }
 
-//running the program
+//change image theme
+const backgroundTheme = document.getElementById('grid-wrap');
+function toggleBackground () {
+    backgroundTheme.classList.toggle('grid-wrap-night')
+}
+//running the program\
 askUserForGrid();
+
+
 

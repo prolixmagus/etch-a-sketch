@@ -11,17 +11,17 @@
 <body>
     <div>
         <div class="header"> Etch-a-Sketch</div>
-        <div class="grid-wrap">
+        <div class="grid-wrap" id="grid-wrap">
             <div id="container"></div>
+            <button class="change" onclick="toggleBackground()"> Click to Change Image </button>
         </div>
-        <div class="button-wrapper">
+        <div class="button-wrapper" id="wraps">
             <button id="grid-size" class="button">Set Grid Size!</button>
             <button id="black" class="default-button">Black</button>
             <button id="psycho" class="psych-button" >Psychadelic</button>
             <button onclick="reset()" id="reset-btn" class="button">Reset</button>
         </div>
     </div>
-
 </body>
 
 </html>

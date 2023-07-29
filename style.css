@@ -10,9 +10,7 @@ html {
     height: 500px;
     border: solid black 1px;
     padding: 0px;
-    border: solid pink 2px;
-
-   
+    border: solid pink 2px; 
 }
 
 .header {
@@ -50,6 +48,7 @@ button {
     font-size: 1.3em;
     font-weight: bold;
     font-variant: small-caps;
+    border-radius: 15%
 }
 
 button#grid-size{
@@ -72,12 +71,17 @@ button:hover {
     text-shadow: 2px 2px black;
 }
 
+button.change {
+    border-radius: 20%;
+    background-color: rgb(35, 40, 68);
+}
+
 button:active {
     scale: 1.1;
 }
 
 .grid-wrap {
-    background-image: url(images/beach.jpg);
+    background-image: url(images/beach.png);
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -86,4 +90,10 @@ button:active {
     padding: 5%;
     height: 500px; 
     border: solid pink 3px;
+    gap: 20px;
+}
+
+.grid-wrap.grid-wrap-night {
+    background-image: url(images/night-beach.png);
+    background-size: cover;
 }
