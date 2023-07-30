@@ -71,10 +71,14 @@ button:hover {
     text-shadow: 2px 2px black;
 }
 
-
-.change-day {
+button.change-night {
     border-radius: 20%;
-    background-color: rgb(49, 60, 112);
+    background-color: rgb(35, 40, 68);
+}
+
+button.change-day {
+    border-radius: 20%;
+    background-color: rgb(223, 206, 74);
 }
 
 button:active {
@@ -94,7 +98,7 @@ button:active {
     gap: 20px;
 }
 
-.grid-wrap.grid-wrap-night{
+.grid-wrap.grid-wrap-night {
     background-image: url(images/night-beach.png);
     background-size: cover;
 }

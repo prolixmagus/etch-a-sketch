@@ -132,23 +132,17 @@ function colorRandomizer() {
     return "rgb(" + r + "," + g + "," + b + ")";
 }
 
-function setMode() {
-        let changeButton = document.getElementById('change-mode')
-        changeButton.addEventListener('click', changeBackground)
-        changeButton.addEventListener('click', () => {
-        changeButton.classList.toggle('change-day')
-        })
-    }
-function changeBackground() {
-    let gridWrap = document.querySelector('.grid-wrap')
-    gridWrap.classList.toggle('grid-wrap-night')
+//change image theme
+function toggleViewMode() {
+    const viewMode = document.getElementById('.change-night'); 
+    viewMode.addEventListener('click', viewMode)
+}
+function viewMode(e) {
+    e.classList.toggle('.change-day')
 }
 
-//change image theme
-
-//running the program
+//running the program\
 askUserForGrid();
-setMode()
 
 
 
