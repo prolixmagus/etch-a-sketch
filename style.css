@@ -1,6 +1,10 @@
-html {
-    background-color: lightblue;
+body {
     box-sizing: border-box;
+    background-image: linear-gradient(to bottom, #CAE9F5, #AFDCEB );
+}
+
+.dark {
+    background-image: linear-gradient(to bottom, #eeaf61, #fb9062, #ee5d6c, #ce4993, #a9286f);
 }
 
 #container {
@@ -71,10 +75,9 @@ button:hover {
     text-shadow: 2px 2px black;
 }
 
-
 .change-day {
     border-radius: 20%;
-    background-color: rgb(49, 60, 112);
+    background-color: rgb(95, 102, 137);
 }
 
 button:active {

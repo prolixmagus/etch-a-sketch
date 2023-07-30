@@ -136,9 +136,16 @@ function setMode() {
         let changeButton = document.getElementById('change-mode')
         changeButton.addEventListener('click', changeBackground)
         changeButton.addEventListener('click', () => {
-        changeButton.classList.toggle('change-day')
+            changeButton.classList.toggle('change-day')
         })
+        changeButton.addEventListener('click', changeBodyBackground)
     }
+
+function changeBodyBackground() {
+    const body = document.querySelector('body')
+    body.classList.toggle('dark')
+}
+
 function changeBackground() {
     let gridWrap = document.querySelector('.grid-wrap')
     gridWrap.classList.toggle('grid-wrap-night')
